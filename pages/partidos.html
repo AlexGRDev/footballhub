@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Partidos - La Liga</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <header class="main-header fade-in">
+        <h1 class="logo">Partidos <span>La Liga</span></h1>
+        <nav class="main-nav">
+            <a href="../index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="tabla.html" class="nav-link">Tabla</a>
+            <a href="partidos.html" class="nav-link active">Partidos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="page-partidos">
+        <section class="filters slide-up">
+            <label>
+                Fecha:
+                <input type="date" id="filtroFecha" class="input">
+            </label>
+            <select id="filtroEquipo" class="input">
+                <option value="">Todos los equipos</option>
+            </select>
+        </section>
+
+        <section id="listaPartidos" class="lista-partidos fade-in">
+            <!-- Render dinámico -->
+        </section>
+
+        <p id="partidosLoading" class="loading">Cargando partidos...</p>
+        <p id="partidosError" class="error"></p>
+    </main>
+
+    <footer class="main-footer fade-in">
+        <p>Datos servidos desde API propia /api/partidos</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/filters.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const loading = document.getElementById("partidosLoading");
+            const error = document.getElementById("partidosError");
+            try {
+                const partidos = await obtenerPartidos();
+                loading.style.display = "none";
+                inicializarFiltrosPartidos(partidos);
+                renderizarPartidos(partidos);
+
+                const filtroFecha = document.getElementById("filtroFecha");
+                const filtroEquipo = document.getElementById("filtroEquipo");
+
+                function actualizar() {
+                    const filtrados = filtrarPartidos(partidos, filtroFecha.value, filtroEquipo.value);
+                    renderizarPartidos(filtrados);
+                }
+
+                filtroFecha.addEventListener("change", actualizar);
+                filtroEquipo.addEventListener("change", actualizar);
+            } catch (e) {
+                loading.style.display = "none";
+                error.textContent = "No se pudieron cargar los partidos.";
+            }
+        });
+    </script>
+</body>
+</html>

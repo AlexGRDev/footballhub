@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos - La Liga</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <header class="main-header fade-in">
+        <h1 class="logo">Equipos <span>La Liga</span></h1>
+        <nav class="main-nav">
+            <a href="../index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link active">Equipos</a>
+            <a href="tabla.html" class="nav-link">Tabla</a>
+            <a href="partidos.html" class="nav-link">Partidos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="page-equipos">
+        <section class="filters slide-up">
+            <input type="text" id="buscadorEquipos" placeholder="Buscar equipo..." class="input">
+            <select id="filtroCiudad" class="input">
+                <option value="">Todas las ciudades</option>
+            </select>
+        </section>
+
+        <section id="listaEquipos" class="lista-equipos fade-in">
+            <!-- Render dinámico -->
+        </section>
+
+        <p id="equiposLoading" class="loading">Cargando equipos...</p>
+        <p id="equiposError" class="error"></p>
+    </main>
+
+    <footer class="main-footer fade-in">
+        <p>Datos servidos desde API propia /api/equipos</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/filters.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const loading = document.getElementById("equiposLoading");
+            const error = document.getElementById("equiposError");
+            try {
+                const equipos = await obtenerEquipos();
+                loading.style.display = "none";
+                inicializarFiltrosEquipos(equipos);
+                renderizarEquipos(equipos);
+
+                const buscador = document.getElementById("buscadorEquipos");
+                const filtroCiudad = document.getElementById("filtroCiudad");
+
+                function actualizar() {
+                    const filtrados = filtrarEquipos(equipos, buscador.value, filtroCiudad.value);
+                    renderizarEquipos(filtrados);
+                }
+
+                buscador.addEventListener("input", actualizar);
+                filtroCiudad.addEventListener("change", actualizar);
+            } catch (e) {
+                loading.style.display = "none";
+                error.textContent = "No se pudieron cargar los equipos.";
+            }
+        });
+    </script>
+</body>
+</html>

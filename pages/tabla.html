@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Clasificación - La Liga</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <header class="main-header fade-in">
+        <h1 class="logo">Tabla <span>La Liga</span></h1>
+        <nav class="main-nav">
+            <a href="../index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="tabla.html" class="nav-link active">Tabla</a>
+            <a href="partidos.html" class="nav-link">Partidos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="page-tabla">
+        <section class="tabla-controls slide-up">
+            <button data-orden="puntos" class="btn-secondary">Ordenar por puntos</button>
+            <button data-orden="goles" class="btn-secondary">Ordenar por goles</button>
+        </section>
+
+        <table id="tablaClasificacion" class="tabla-clasificacion fade-in">
+            <!-- Render dinámico -->
+        </table>
+
+        <p id="tablaLoading" class="loading">Cargando clasificación...</p>
+        <p id="tablaError" class="error"></p>
+    </main>
+
+    <footer class="main-footer fade-in">
+        <p>Datos servidos desde API propia /api/tabla</p>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/filters.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const loading = document.getElementById("tablaLoading");
+            const error = document.getElementById("tablaError");
+            try {
+                let tabla = await obtenerTabla();
+                loading.style.display = "none";
+                renderizarTabla(tabla);
+
+                document.querySelectorAll(".tabla-controls button").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const orden = btn.dataset.orden;
+                        tabla = ordenarTabla(tabla, orden);
+                        renderizarTabla(tabla);
+                    });
+                });
+            } catch (e) {
+                loading.style.display = "none";
+                error.textContent = "No se pudo cargar la clasificación.";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - FootballHub</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <header class="main-header fade-in">
+        <h1 class="logo">Contacto <span>FootballHub</span></h1>
+        <nav class="main-nav">
+            <a href="../index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="tabla.html" class="nav-link">Tabla</a>
+            <a href="partidos.html" class="nav-link">Partidos</a>
+            <a href="contacto.html" class="nav-link active">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="page-contacto">
+        <form id="formContacto" class="form-contacto slide-up" novalidate>
+            <label>
+                Nombre:
+                <input type="text" id="nombre" required class="input">
+            </label>
+            <label>
+                Email:
+                <input type="email" id="email" required class="input">
+            </label>
+            <label>
+                Mensaje:
+                <textarea id="mensaje" required minlength="10" class="input"></textarea>
+            </label>
+            <button type="submit" class="btn-primary">Enviar</button>
+            <p id="mensajeError" class="error"></p>
+            <p id="mensajeOk" class="ok"></p>
+        </form>
+    </main>
+
+    <footer class="main-footer fade-in">
+        <p>Formulario con validación en JavaScript</p>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
+
