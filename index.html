@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FootballHub - La Liga</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <header class="main-header fade-in">
+        <h1 class="logo">FootballHub <span>La Liga</span></h1>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link active">Inicio</a>
+            <a href="pages/equipos.html" class="nav-link">Equipos</a>
+            <a href="pages/tabla.html" class="nav-link">Tabla</a>
+            <a href="pages/partidos.html" class="nav-link">Partidos</a>
+            <a href="pages/contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="home">
+        <section class="hero slide-up">
+            <h2>La Liga 2024/2025</h2>
+            <p>
+                Consulta equipos, clasificación y partidos de La Liga en una interfaz dinámica,
+                con datos servidos desde una API propia.
+            </p>
+            <button id="btnExplorar" class="btn-primary">Explorar equipos</button>
+        </section>
+
+        <section class="stats-grid fade-in-delayed">
+            <div class="stat-card">
+                <h3 id="statEquipos">0</h3>
+                <p>Equipos</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="statPartidos">0</h3>
+                <p>Partidos</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="statJornadas">0</h3>
+                <p>Jornadas</p>
+            </div>
+        </section>
+
+        <section class="links-laliga slide-up-delayed">
+            <h3>Web oficial de La Liga</h3>
+            <p>
+                Datos inspirados en la competición real. Más información en
+                <a href="https://www.laliga.com" target="_blank" rel="noopener noreferrer">
+                    www.laliga.com
+                </a>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="main-footer fade-in">
+        <p>Proyecto ASIX · FootballHub La Liga 2024/2025</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
