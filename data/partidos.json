@@ -1,0 +1,24 @@
+[
+  {
+    "local": "Real Madrid CF",
+    "visitante": "FC Barcelona",
+    "fecha": "2026-02-10",
+    "jornada": 23,
+    "estadio": "Santiago Bernabéu"
+  },
+  {
+    "local": "Girona FC",
+    "visitante": "Atlético de Madrid",
+    "fecha": "2026-02-11",
+    "jornada": 23,
+    "estadio": "Montilivi"
+  },
+  {
+    "local": "Athletic Club",
+    "visitante": "FC Barcelona",
+    "fecha": "2026-02-18",
+    "jornada": 24,
+    "estadio": "San Mamés"
+  }
+]
+

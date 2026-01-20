@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nombre": "Real Madrid CF", "ciudad": "Madrid", "estadio": "Santiago Bernabéu" },
+  { "id": 2, "nombre": "FC Barcelona", "ciudad": "Barcelona", "estadio": "Estadi Olímpic Lluís Companys" },
+  { "id": 3, "nombre": "Girona FC", "ciudad": "Girona", "estadio": "Montilivi" },
+  { "id": 4, "nombre": "Atlético de Madrid", "ciudad": "Madrid", "estadio": "Cívitas Metropolitano" },
+  { "id": 5, "nombre": "Athletic Club", "ciudad": "Bilbao", "estadio": "San Mamés" }
+]
+
