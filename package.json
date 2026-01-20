@@ -1,0 +1,13 @@
+{
+  "name": "footballhub-laliga",
+  "version": "1.0.0",
+  "description": "Proyecto ASIX FootballHub con API para La Liga",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.22.1"
+  }
+}
