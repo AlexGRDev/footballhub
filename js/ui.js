@@ -84,3 +84,4 @@ function renderizarPartidos(partidos) {
     });
 }
 
+console.log("UI desde main");
