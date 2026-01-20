@@ -1,0 +1,140 @@
+.hero {
+    max-width: 800px;
+    margin: 2rem auto 2.5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: radial-gradient(circle at top left, var(--accent-soft), var(--bg-alt));
+    border: 1px solid var(--border);
+}
+
+.hero h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #020617;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(56, 189, 248, 0.45);
+}
+
+.btn-secondary {
+    background: #111827;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: #1f2937;
+}
+
+.input {
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background: #020617;
+    color: var(--text);
+}
+
+.input:focus {
+    outline: 1px solid var(--accent);
+    box-shadow: 0 0 0 1px var(--accent-soft);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.stat-card {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: #020617;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.lista-equipos,
+.lista-partidos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+}
+
+.card-equipo,
+.card-partido {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: #020617;
+    border: 1px solid var(--border);
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.card-equipo:hover,
+.card-partido:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
+    border-color: var(--accent);
+}
+
+.tabla-clasificacion {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.tabla-clasificacion th,
+.tabla-clasificacion td {
+    border: 1px solid var(--border);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.tabla-clasificacion thead {
+    background: #020617;
+}
+
+.form-contacto {
+    max-width: 420px;
+    margin: 2rem auto 0;
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background: #020617;
+    border: 1px solid var(--border);
+}
+
+.error {
+    color: var(--error);
+    min-height: 1.2rem;
+}
+
+.ok {
+    color: var(--ok);
+    min-height: 1.2rem;
+}
+
